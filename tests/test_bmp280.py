@@ -1,9 +1,8 @@
-import busio
-import board
 # import adafruit_bmp280
-globals()["adafruit_bmp280"] = __import__("adafruit_bmp280")
-globals()["adafruit_htu21d"] = __import__("adafruit_htu21d")
-
+import adafruit_bmp280
+import adafruit_htu21d
+import board
+import busio
 
 i2c = busio.I2C(board.SCL, board.SDA)
 
