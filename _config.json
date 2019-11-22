@@ -1,14 +1,16 @@
 {
- 
+ "measurement_interval_sec": 60,
  "network": {
-       "ssid": "godelnet"
-       "password": "escherbach"
-    }
-
+       "ssid": "your_network_ssid",
+       "password": "your_network_password"
+    },
+ "mqtt": {
+     "broker": "your_broker_ip",
+     "port": 1883
+     },
  "sensors":
-     {"bmp280":
-          { "driver": "adafruit_bmp280" },
-      "htu21d":
-          { "driver": "adafruit_htu21d" }
+     {"bme280":
+          { "driver": "adafruit_bme280" },
+
     }
 }
