@@ -1,5 +1,7 @@
 import utime
+
 from . import simple
+
 
 class MQTTClient(simple.MQTTClient):
 
@@ -12,13 +14,13 @@ class MQTTClient(simple.MQTTClient):
     def log(self, in_reconnect, e):
         if self.DEBUG:
             if in_reconnect:
-                print("mqtt reconnect: %r" % e)
+                print('mqtt reconnect: %r' % e)
             else:
-                print("mqtt: %r" % e)
+                print('mqtt: %r' % e)
 
     def reconnect(self):
         i = 0
-        while 1:
+        while True:
             try:
                 return super().connect(False)
             except OSError as e:
@@ -27,7 +29,7 @@ class MQTTClient(simple.MQTTClient):
                 self.delay(i)
 
     def publish(self, topic, msg, retain=False, qos=0):
-        while 1:
+        while True:
             try:
                 return super().publish(topic, msg, retain, qos)
             except OSError as e:
@@ -35,10 +37,9 @@ class MQTTClient(simple.MQTTClient):
             self.reconnect()
 
     def wait_msg(self):
-        while 1:
+        while True:
             try:
                 return super().wait_msg()
             except OSError as e:
                 self.log(False, e)
             self.reconnect()
-
