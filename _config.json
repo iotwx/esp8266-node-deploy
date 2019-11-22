@@ -1,0 +1,14 @@
+{
+ 
+ "network": {
+       "ssid": "godelnet"
+       "password": "escherbach"
+    }
+
+ "sensors":
+     {"bmp280":
+          { "driver": "adafruit_bmp280" },
+      "htu21d":
+          { "driver": "adafruit_htu21d" }
+    }
+}
